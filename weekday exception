@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Weekday {
+    public static void main(String[] args) {
+
+        String[] weekdays = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the day position (0-6): ");
+        int dayPosition = scanner.nextInt();
+
+        try {
+            // Output
+            String dayName = getDayName(weekdays, dayPosition);
+            System.out.println("The day at position " + dayPosition + " is " + dayName);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Day position must be in the range of 0 to 6.");
+        }
+    }
+
+    // Function to get the day name based on the day position
+    static String getDayName(String[] weekdays, int dayPosition) {
+        return weekdays[dayPosition];
+
+
+    }
+}
+
+
+
