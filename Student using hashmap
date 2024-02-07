@@ -12,9 +12,9 @@ public class Student {
         Map<String, Integer> studentGrades = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
-        studentGrades.put("John", 85);
-        studentGrades.put("Alice", 92);
-        studentGrades.put("Bob", 78);
+        studentGrades.put("naresh", 85);
+        studentGrades.put("kumar", 92);
+        studentGrades.put("ravi", 78);
 
 
         while (true) {
