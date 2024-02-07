@@ -1,0 +1,90 @@
+import javafx.beans.binding.MapExpression;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+public class Student {
+    private static MapExpression<Object, Object> studentGrades;
+
+    public static void main(String[] args) {
+
+
+        Map<String, Integer> studentGrades = new HashMap<>();
+        Scanner scanner = new Scanner(System.in);
+
+        studentGrades.put("John", 85);
+        studentGrades.put("Alice", 92);
+        studentGrades.put("Bob", 78);
+
+
+        while (true) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add a new student");
+            System.out.println("2. Remove a student");
+            System.out.println("3. Display a student's grade");
+            System.out.println("4. Exit");
+
+            System.out.print("Enter your choice (1-4): ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    addNewStudent(scanner);
+                    break;
+                case 2:
+                    removeStudent(scanner);
+                    break;
+                case 3:
+                    displayStudentGrade(scanner);
+                    break;
+                case 4:
+                    System.out.println("Exiting the program.");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        }
+    }
+
+
+
+       public  static void addNewStudent(Scanner scanner) {
+            System.out.print("Enter the student name: ");
+            String studentName = scanner.nextLine();
+
+            System.out.print("Enter the student's grade: ");
+            int grade = scanner.nextInt();
+
+            studentGrades.put(studentName, grade);
+            System.out.println(studentName + " added with a grade of " + grade);
+        }
+
+      public   static void removeStudent(Scanner scanner) {
+            System.out.print("Enter the name of the student to remove: ");
+            String studentName = scanner.nextLine();
+
+            if (studentGrades.containsKey(studentName)) {
+                studentGrades.remove(studentName);
+                System.out.println(studentName + " removed from the records.");
+            } else {
+                System.out.println("Student not found.");
+            }
+        }
+
+       public  static void displayStudentGrade(Scanner scanner) {
+            System.out.print("Enter the name of the student to display the grade: ");
+            String studentName = scanner.nextLine();
+
+            if (studentGrades.containsKey(studentName)) {
+                int grade = (int) studentGrades.get(studentName);
+                System.out.println(studentName + "'s grade is: " + grade);
+            } else {
+                System.out.println("Student not found.");
+            }
+
+
+
+    }
+}
